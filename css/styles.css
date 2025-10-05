@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contain {
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    width: 100%;
+    max-width: 500px;
+    height: 900px;
+    background-color: aqua;
+    align-items: center;
+    padding: 20px;
+}
+
+.imagecard {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    border-radius: 20px;
+    margin-top: 30px;
+    
+}
+
+
+.imagecard .card {
+    position: absolute;   /* chồng lên nhau */
+    inset: 0;             /* top:0; right:0; bottom:0; left:0 */
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    
+}
+
+/* z-index quyết định ai nổi lên */
+.imagecard .card:nth-child(1) { z-index: 1; }
+.imagecard .card:nth-child(2) { z-index: 2; }
+.imagecard .card:nth-child(3) { z-index: 3; }
+
+.imagecard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    cursor: grab;
+    border: 4px solid transparent; 
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.imagecard img:active {
+    cursor: grabbing;
+}
+
+.imagecard p {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    font-size: 1rem;
+}
+
+.emoji {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.emoji button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 32px;
+    background-color: aqua;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .main {
+        max-width: 90%;
+        padding: 10px;
+        height: 500px;
+    }
+
+    /* fix typo: .image-car -> .imagecard */
+    .imagecard p {
+        font-size: 0.9rem;
+    }
+
+    .emoji button {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+    }
+}
